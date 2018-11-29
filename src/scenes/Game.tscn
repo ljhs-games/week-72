@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://nodes/escape-listener/EscapeListener.tscn" type="PackedScene" id=1]
+[ext_resource path="res://nodes/time-counter/TimeCounter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nodes/aim-missile/AimMissile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/place-label/PlaceLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nodes/boundary/Boundary.tscn" type="PackedScene" id=5]
+[ext_resource path="res://nodes/sidewalk/SideWalk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://nodes/enemy-car-spawner/EnemyCarSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://nodes/missile-spawner/MissileSpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=9]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 [node name="UI" type="CanvasLayer" parent="." index="0"]
 
@@ -14,6 +22,76 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="EscapeListener" parent="UI" index="0" instance=ExtResource( 1 )]
 
+margin_right = 216.0
+margin_bottom = 36.0
+_sections_unfolded = [ "Anchor", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
 main_scene = "res://scenes/TitleScreen.tscn"
+
+[node name="TimeCounter" parent="UI" index="1" instance=ExtResource( 2 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -36.0
+margin_right = 36.0
+margin_bottom = 36.0
+size_flags_horizontal = 4
+_sections_unfolded = [ "Size Flags", "Theme", "custom_colors", "custom_fonts" ]
+
+[node name="AimMissile" parent="UI" index="2" instance=ExtResource( 3 )]
+
+[node name="PlaceLabel" parent="UI" index="3" instance=ExtResource( 4 )]
+
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -360.0
+margin_right = -30.0
+margin_bottom = 90.0
+align = 2
+
+[node name="Background" type="Node2D" parent="." index="1"]
+
+[node name="UpperBound" parent="Background" index="0" instance=ExtResource( 5 )]
+
+[node name="LeftBound" parent="Background" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 32, 0 )
+rotation = 1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="RightBound" parent="Background" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 668, 0 )
+rotation = 1.5708
+_sections_unfolded = [ "Transform" ]
+
+[node name="LowerBound" parent="Background" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 0, 700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LeftSideWalk" parent="Background" index="4" instance=ExtResource( 6 )]
+
+[node name="RightSideWalk" parent="Background" index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 668, 0 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="ForeGround" type="Node2D" parent="." index="2"]
+
+position = Vector2( 350, 350 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="EnemyCarSpawner" parent="ForeGround" index="0" instance=ExtResource( 7 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="MissileSpawner" parent="ForeGround" index="1" instance=ExtResource( 8 )]
+
+player_path = NodePath("../Player")
+
+[node name="Player" parent="ForeGround" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( -20, 20 )
 
 

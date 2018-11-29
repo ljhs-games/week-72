@@ -4,7 +4,7 @@
 [ext_resource path="res://nodes/travel-button/TravelButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nodes/quit-button/QuitButton.tscn" type="PackedScene" id=3]
 
-[node name="TitleScreen" type="Node2D" index="0"]
+[node name="TitleScreen" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
@@ -82,7 +82,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "Play"
-_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Size Flags", "Theme", "custom_fonts" ]
 target_scene = "res://scenes/Game.tscn"
 
 [node name="TravelButton2" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
