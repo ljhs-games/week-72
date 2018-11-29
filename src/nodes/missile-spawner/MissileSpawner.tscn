@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://nodes/player/MissileSpawner.gd" type="Script" id=1]
+[ext_resource path="res://nodes/missile-spawner/MissileSpawner.gd" type="Script" id=1]
 
 [node name="MissileSpawner" type="Node2D"]
 
 script = ExtResource( 1 )
+player_path = null
 
 

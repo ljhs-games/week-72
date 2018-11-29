@@ -11,5 +11,5 @@ func _ready():
 func _on_SpawnTimer_timeout():
 	var cur_enemy_car = enemy_car_pack.instance()
 	add_child(cur_enemy_car)
-	cur_enemy_car.global_position = Vector2(rand_range(32, 668), -200)
+	cur_enemy_car.global_position = Vector2(rand_range(100, 600), -200)
 	$SpawnTimer.wait_time = rand_range(time_range.x, time_range.y)

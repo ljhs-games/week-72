@@ -23,7 +23,7 @@ func _physics_process(delta):
 	velocity.x += bring_to_zero(velocity.x, dampening)
 	velocity.y += bring_to_zero(velocity.y, dampening)
 	move_and_collide(delta*velocity)
-	print(global_position)
+	#print(global_position)
 
 func _input(event):
 	if event.is_action_pressed("g_left"):

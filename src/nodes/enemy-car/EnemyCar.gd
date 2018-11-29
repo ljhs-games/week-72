@@ -29,5 +29,7 @@ func destroy():
 	set_process(true)
 
 func _on_VisibilityNotifier2D_screen_exited():
+	if $Sprite.modulate.a <= 0.0: # deleted intentionally
+		return
 	Score.place += 1
 	queue_free()

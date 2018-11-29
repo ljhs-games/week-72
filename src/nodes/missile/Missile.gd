@@ -34,4 +34,6 @@ func _on_Missile_body_entered(body):
 		destroy()
 
 func _on_VisibilityNotifier2D_screen_exited():
+	if is_processing():
+		return
 	queue_free()
